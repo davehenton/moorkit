@@ -1,0 +1,24 @@
+<h1>Moorkit</h1>
+<p>
+  <h2>Authentication</h2>
+  <% if current_user %>
+    Logged in as <%= [current_user.first_name, current_user.last_name].join(" ") %>
+    <%= link_to "Log Out", signout_path %>
+  <% else %>
+    Login with:
+    <% [:developer, :google, :facebook, :linkedin].each do |prov| %>
+      <%= link_to prov.to_s.capitalize, "/auth/#{prov}" %>
+    <% end %>
+  <% end %>
+</p>
+<p>
+  <h2>Segment</h2>
+  <%= form_tag('/api/v1/webhooks/segment.json') do %>
+    <%= text_field_tag(:email, nil, placeholder: 'someone@gmail.com' ) %>
+    <%= submit_tag('Submit') %>
+  <% end %>
+</p>
+<p>
+  <h2>Other</h2>
+  <a href="https://www.github.com/ac21/moorkit">Check me out</a>
+</p>

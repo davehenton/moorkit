@@ -1,0 +1,32 @@
+language: ruby
+sudo: false
+rvm:
+  - 2.3.1
+
+env:
+  global:
+    - SH_PG_URL=postgres://postgres@localhost:5432/development
+    - SH_REDIS_URL=redis://localhost:637
+    - SH_RESQUE_CREDENTIALS="travis:travis"
+    - RAILS_ENV=test
+    - RUBY_ENV=test
+  matrix:
+    - DB=postgresql
+
+before_install:
+  - gem install bundler -v 1.12.5
+
+cache:
+  bundler: true
+
+before_script:
+  - psql -U postgres -c 'create database development'
+  - make db-load db-migrate 
+
+services:
+  - postgresql
+
+addons:
+  postgresql: "9.4"
+  code_climate:
+    repo_token: 6a1b1e2c8425d02ec0b5cbf6d9a9b0cb9de6333458fb416e94d252e2d239ee26

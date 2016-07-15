@@ -1,0 +1,50 @@
+{
+  "name": "sherlock",
+  "scripts": {
+  },
+  "env": {
+    "LANG": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "SH_RESQUE_CREDENTIALS": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    }
+    "SH_PG_URL": {
+      "required": true
+    },
+    "SH_PIPL_API_KEY": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "Free"
+    },
+    "resque": {
+      "quantity": 1,
+      "size": "Free"
+    }
+  },
+  "addons": [
+    "heroku-postgresql",
+    "heroku-redis"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
