@@ -16,9 +16,6 @@ gem 'resque','1.26.0'
 gem 'grape', '0.16.2'
 # Build JSON output with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '2.5.0'
-#Use bcrypt to encrypt shared-secrets
-gem 'bcrypt', '3.1.11'
-
 
 #secure the API via OAuth using Doorkeeper
 gem 'doorkeeper', '4.0.0'
@@ -38,8 +35,6 @@ gem 'omniauth-linkedin-oauth2', '0.1.5'
 gem 'sass-rails', '5.0.4'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '3.0.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '4.1.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.1.1'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -53,6 +48,7 @@ end
 gem 'puma', '3.4.0'
 
 group :test do
+  gem 'factory_girl_rails', '4.7.0'
   gem 'rspec', '3.4.0'
   gem 'cucumber', '2.4.0'
   gem 'cucumber-api-steps', '0.13'

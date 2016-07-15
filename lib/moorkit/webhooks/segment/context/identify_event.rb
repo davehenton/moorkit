@@ -8,15 +8,14 @@ module Moorkit
 
           class UnknownError < StandardError; end
 
-          def initialize(member_upsert_context:, logger:)
-            @member_upsert_context = member_upsert_context
+          def initialize(user_upsert_context:, logger:)
+            @user_upsert_context = user_upsert_context
             @logger = logger
           end
 
           def call(payload:)
-            sso_uuid = payload[:userId]
-            if Support::Tools.is_uuid?(sso_uuid)
-              @member_upsert_context.call(sso_uuid: sso_uuid, details: payload)
+            if Support::Tools.is_uuid?(payload[:userId])
+              @user_upsert_context.call(uuid: payload[:userId], email: email(payload[:traits]), details: payload)
             else
               @logger.info "did not record payload where userId: #{payload[:userId]} and anonymousId: #{payload[:anonymousId]}"
             end
@@ -27,6 +26,11 @@ module Moorkit
             raise UnknownError.new("#{e.class}: #{e}")
           end
 
+          private
+
+          def email(traits)
+            traits[:email] unless traits.nil?
+          end
         end
       end
     end

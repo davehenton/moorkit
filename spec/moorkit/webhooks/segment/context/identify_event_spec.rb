@@ -3,11 +3,11 @@ require 'moorkit/webhooks/segment/context/identify_event'
 
 RSpec.describe Moorkit::Webhooks::Segment::Context::IdentifyEvent do
   let(:logger) { double(:logger, info: true, debug: true) }
-  let(:sso_uuid) { '12345678-1234-1234-1234-123456789012' }
+  let(:uuid) { '12345678-1234-1234-1234-123456789012' }
   let(:email) { 'jimmy@jimmyjohns.com' }
-  let(:payload) { {geo_state: "IL"}.merge({ userId: sso_uuid}).merge({traits: {email: email}}) }
-  let(:member_upsert_context) { double(:member_upsert_context, call: true) }
-  let(:context) { described_class.new(member_upsert_context: member_upsert_context, logger: logger) }
+  let(:payload) { {geo_state: "IL"}.merge({ userId: uuid}).merge({traits: {email: email}}) }
+  let(:user_upsert_context) { double(:user_upsert_context, call: true) }
+  let(:context) { described_class.new(user_upsert_context: user_upsert_context, logger: logger) }
 
   describe "#new" do
     subject { context }
@@ -20,16 +20,16 @@ RSpec.describe Moorkit::Webhooks::Segment::Context::IdentifyEvent do
 
     it { is_expected.to eq(true) }
 
-    it 'calls member_upsert_context with valid arguments' do
-      expect(member_upsert_context).to receive(:call).with(sso_uuid: sso_uuid, details: payload)
+    it 'calls user_upsert_context with valid arguments' do
+      expect(user_upsert_context).to receive(:call).with(uuid: uuid, email: email, details: payload)
       subject
     end
 
-    context 'when sso_uuid is not valid' do
-      let(:sso_uuid) { '1' }
+    context 'when uuid is not valid' do
+      let(:uuid) { '1' }
 
-      it 'does not upsert a member' do
-        expect(member_upsert_context).not_to receive(:call)
+      it 'does not upsert a user' do
+        expect(user_upsert_context).not_to receive(:call)
         subject
       end
 
@@ -44,7 +44,7 @@ RSpec.describe Moorkit::Webhooks::Segment::Context::IdentifyEvent do
     context 'when an unknown error occurs' do
 
       before(:each) do
-        allow(member_upsert_context).to receive(:call).and_raise(StandardError.new("Unknown Error"))
+        allow(user_upsert_context).to receive(:call).and_raise(StandardError.new("Unknown Error"))
       end
 
       it 'is expected to raise an UnknownError' do

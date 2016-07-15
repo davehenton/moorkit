@@ -5,9 +5,9 @@ rvm:
 
 env:
   global:
-    - SH_PG_URL=postgres://postgres@localhost:5432/development
-    - SH_REDIS_URL=redis://localhost:637
-    - SH_RESQUE_CREDENTIALS="travis:travis"
+    - MK_PG_URL=postgres://postgres@localhost:5432/development
+    - MK_REDIS_URL=redis://localhost:637
+    - MK_RESQUE_CREDS="travis:travis"
     - RAILS_ENV=test
     - RUBY_ENV=test
   matrix:
@@ -20,8 +20,7 @@ cache:
   bundler: true
 
 before_script:
-  - psql -U postgres -c 'create database development'
-  - make db-load db-migrate 
+  - make db-setup
 
 services:
   - postgresql

@@ -32,17 +32,19 @@ cukes:
 db-migrate:
 	bundle exec rake db:migrate
 
-db-reset: db-drop-all db-load db-migrate
+db-reset: db-drop-all db-migrate
 	bundle exec rake db:seed
 	echo "Reset Complete"
 
 db-load:
-	psql -d $(PG_URL) < db/structure.sql
+	bundle exec rake db:schema:load
+
+db-setup: db-createdb db-user db-migrate
 
 db-drop-all:
-	psql -d $(PG_URL) -c "drop owned by $(DB_USER);"
+	psql -d $(PG_URL) -c "DROP OWNED BY $(DB_USER);"
 
-db-create-dev:
+db-createdb:
 	createdb $(DB_NAME)
 
 db-user:

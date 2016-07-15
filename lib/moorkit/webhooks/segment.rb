@@ -26,7 +26,7 @@ module Moorkit
 
         def identify_event_context
           Context::IdentifyEvent.new(
-            member_upsert_context: Moorkit::User.upsert_context,
+            user_upsert_context: Moorkit::User.upsert_context,
             logger: Rails.logger
           )
         end

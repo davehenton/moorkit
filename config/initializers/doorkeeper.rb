@@ -6,7 +6,7 @@ Doorkeeper.configure do
   resource_owner_authenticator do
     session[:user_return_to] = request.fullpath
     #current_user || redirect_to(new_user_session_url)
-    User.find_by_id(session[:user_id]) || redirect_to(new_user_session_url)
+    User.find_by_id(session[:user_id]) || redirect_to(root_path)
   end
 
   # If you want to restrict access to the web interface for adding oauth authorized applications, you need to declare the block below.

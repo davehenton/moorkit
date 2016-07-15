@@ -1,10 +1,16 @@
-Given /^I am a valid API user with Bearer token "(.*?)"$/ do |token|
-  header 'Authorization', "Bearer #{token}"
-  id, shared_secret = token.split(":")
-  shared_secret_hash = BCrypt::Password.create(shared_secret)
-  ApiKey.create(id: id, shared_secret_hash: shared_secret_hash)
+
+Given /^I have a VALID access token$/ do
+  user = FactoryGirl.create(:user)
+  doorkeeper_app = FactoryGirl.create(:doorkeeper_application)
+  access_token = FactoryGirl.create(
+    :doorkeeper_token,
+    application_id: doorkeeper_app.id,
+    resource_owner_id: user.id
+  )
+  header 'Authorization', "Bearer #{access_token.token}"
 end
 
-Given /^I am a invalid API user with Bearer token "(.*?)"$/ do |token|
-  header 'Authorization', "Bearer #{token}"
+Given /^I have an INVALID access token$/ do
+  access_token = "bad_token"
+  header 'Authorization', "Bearer #{access_token}"
 end

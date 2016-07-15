@@ -24,7 +24,7 @@ RSpec.describe Moorkit::User::Context::Upsert do
     let(:merged_details) { {sitter_rank: 5} }
     let(:new_user_entity) { double(:user_entity, uuid: uuid, details: existing_details) }
     let(:tools) { class_double(Support::Tools).as_stubbed_const }
-    subject { context.call(uuid: uuid, details: new_details)}
+    subject { context.call(uuid: uuid, email: new_email, details: new_details)}
 
     before(:each) do
       allow(user_entity).to receive(:update!).and_return(new_user_entity)
@@ -39,7 +39,7 @@ RSpec.describe Moorkit::User::Context::Upsert do
     end
 
     it 'it updates user with merged details' do
-      expect(user_entity).to receive(:update!).with(details: merged_details)
+      expect(user_entity).to receive(:update!).with(email: new_email, details: merged_details)
       subject
     end
 

@@ -23,7 +23,7 @@ RSpec.describe Jobs::Moorkit::Webhooks::Segment do
     end
 
     context 'when api_request_id is not a valid uuid' do
-      let(:api_request_id) { 1 }
+      let(:api_request_id) { nil }
 
       it 'raises an InvalidUse error' do
         expect { subject }.to raise_error Jobs::Error::InvalidUse

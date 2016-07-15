@@ -1,4 +1,4 @@
-# Sherlock
+# Moorkit
 
 [![Build Status](https://travis-ci.org/ac21/moorkit.svg?branch=master)](https://travis-ci.org/ac21/moorkit)
 [![Code Climate](https://codeclimate.com/github/ac21/moorkit/badges/gpa.svg)](https://codeclimate.com/github/ac21/moorkit)
