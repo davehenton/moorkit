@@ -1,8 +1,8 @@
 # Moorkit
 
 [![Build Status](https://travis-ci.org/ac21/moorkit.svg?branch=master)](https://travis-ci.org/ac21/moorkit)
-[![Code Climate](https://codeclimate.com/github/ac21/moorkit/badges/gpa.svg)](https://codeclimate.com/github/ac21/moorkit)
-[![Test Coverage](https://codeclimate.com/github/ac21/moorkit/badges/coverage.svg)](https://codeclimate.com/github/ac21/moorkit/coverage)
+[![Code Climate](https://codeclimate.com/repos/5789d9dcf7959a007f004277/badges/594d0c621b9235f67146/gpa.svg)](https://codeclimate.com/repos/5789d9dcf7959a007f004277/feed)
+[![Test Coverage](https://codeclimate.com/repos/5789d9dcf7959a007f004277/badges/594d0c621b9235f67146/coverage.svg)](https://codeclimate.com/repos/5789d9dcf7959a007f004277/coverage)
 
 A basic application for investigating users
 
