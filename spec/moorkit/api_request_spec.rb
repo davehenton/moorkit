@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'Moorkit/api_request'
+require 'moorkit/api_request'
 
 RSpec.describe Moorkit::ApiRequest do
   subject { described_class }
