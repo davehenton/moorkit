@@ -1,5 +1,0 @@
-export PATH="/usr/local/heroku/bin:$PATH"
-export MK_PG_URL="postgres://moorkit:moorkit@localhost:5432/development"
-export MK_REDIS_URL="redis://localhost:6379"
-export MK_RESQUE_CREDS="moorkit:moorkit"
-export MK_DEVISE_SECRET_KEY="secret_key"

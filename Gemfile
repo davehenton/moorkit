@@ -31,13 +31,9 @@ gem 'omniauth-linkedin-oauth2', '0.1.5'
 
 
 # ########## HTML Stuff ##########
-# Use SCSS for stylesheets
 gem 'sass-rails', '5.0.4'
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '3.0.0'
-# Use jquery as the JavaScript library
 gem 'jquery-rails', '4.1.1'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', '2.5.3'
 
 # Use static asset serving for Heroku
@@ -49,7 +45,6 @@ gem 'puma', '3.4.0'
 
 group :test do
   gem 'factory_girl_rails', '4.7.0'
-  gem 'rspec', '3.4.0'
   gem 'cucumber', '2.4.0'
   gem 'cucumber-api-steps', '0.13'
   gem 'rack-test', '0.6.3'
@@ -70,4 +65,4 @@ group :development do
   gem 'spring', '1.7.1'
 end
 
-ruby "2.3.1"
+ruby "2.3.4"
