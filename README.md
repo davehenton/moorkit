@@ -12,26 +12,19 @@ A basic application for investigating users
 *   Redis
 
 ## Setup
-*   create environmental variables in ``config.dev``; run ``source config.dev`` to load.  See config.example for necessary variables
-*   run setup: ``make setup``
-*   start containers: ``make start-containers``
-*   prep postgres for custom config because of the need for extensions
-```sh
-attach postgres94-1
-sudo -i -u postgres psql -c "ALTER USER admin WITH SUPERUSER;"
-exit
-```
-*   setup db and db user ``make db-user db-load db-migrate``
+Note: Setup assumes you are using vagrant/virtualbox [dev-vm-rails5](https://github.com/ac21/dev-vm-rails5)
+*   create environmental variables in `.env`;  you can use `example.env` as inspiration; run `export $(xargs -a .env)` to load.  See config.example for necessary variables
+*   run setup: `make setup`
+*   run databse setup: `make db-setup`
 
 ## Running
 * run ``bundle exec rails s`` runs just the rails app
 OR
 
 ## Running on Heroku
-*   Setup Heroku CLI ``make setup-heroku``
-*   Login to heroku: ``heroku login``
-*   Run ``foreman start`` tests Procfile and other workers
+*   Login to heroku: `heroku login`
+*   Run `heroku local` tests Procfile and other workers
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+This app is open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
