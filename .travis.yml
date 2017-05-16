@@ -2,32 +2,33 @@ dist: trusty
 language: ruby
 sudo: false
 rvm:
-  - 2.4.1
-
+- 2.4.1
 env:
   global:
-    - DATABASE_URL=postgres://postgres@localhost:5432/moorkit
-    - REDIS_URL=redis://localhost:637
-    - MK_RESQUE_CREDS="travis:travis"
-    - RAILS_ENV=test
-    - SECRET_KEY_BASE=secret_key
-    - RUBY_ENV=test
+  - DATABASE_URL=postgres://postgres@localhost:5432/moorkit
+  - REDIS_URL=redis://localhost:637
+  - MK_RESQUE_CREDS="travis:travis"
+  - RAILS_ENV=test
+  - SECRET_KEY_BASE=secret_key
+  - RUBY_ENV=test
   matrix:
-    - DB=postgresql
-
+  - DB=postgresql
 before_install:
-  - gem install bundler -v 1.12.5
-
+- gem install bundler -v 1.12.5
 cache:
   bundler: true
-
 before_script:
-  - make db-travis
-
+- make db-travis
 services:
-  - postgresql
-
+- postgresql
+notifications:
+  email: false
+  slack:
+    rooms:
+      secure: hTOiia1vRXc5kLvUInFHtfbVibprU+GOeeKejthZqCjNYET01edAFIeyGVk77HE6SdM5XxoIUJRVnen0bXJPahHF3I0W27cefSgahgo1pHJH5274W/HZyKvIuYJ4F8PnI93lfoGdmIV+Kenci5llu7ND1i14eQFMao/A/yXfXSd4qXny9ulg+cUxFkX/Rmcl/CRw05x2B/EBl0Ze6NH+5GgoHqb3T0iKJJopM2J32inDu9VHYRHcvDY2V55toPUFH6PNlJwJ7pQGpTc30iFNvwMBpzPtTde/bLqYd1npynSnzed2yh4GIDXQaPuagmta3Np9m8GUdjMjtXUa06MS+7HxtNxFt2InSqlQ8NwWc2eCArjphw9PPQVVTMwdZbvLwTr3IGRhuIMh/tpI24286oYsKyYqmJSDZZcvZIyQBqnZI265XsqACrxwe8Mhc/cT5JL7H2WTNNENkbhvdaYuihaUf6KTpR26JbTYK613zkKgNk5InHRe42vBH5ToYFDkQRLjUJUKYWoJ6jzXRe4dgkY+no/WQrJhm+usVXhThn9c1rAALl5DPKeKFgTgRfA0Y5a98tUPj1HpsaL07HqyWQoBaG9Z7wvA6EJAt8gp/TUN26lixpiZ563VwS1MKFK7RyntHvdLNO9zdMsvqJhkTUC+4Or9QHYjvtfqbaLx6vg=
+    on_success: change
+    on_failure: always
 addons:
-  postgresql: "9.5"
+  postgresql: '9.5'
   code_climate:
     repo_token: 26640320ccf0d4039ee13fe4c51d514f0907efa46431a836bfbeb4be7424cfa3
