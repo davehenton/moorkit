@@ -6,8 +6,11 @@ PG_URL="postgres://$(DB_USER):$(DB_PASSWORD)@localhost:5432/$(DB_NAME)"
 
 CWD=$(shell pwd)
 
-setup: setup-basic
+setup: setup-basic set-env
 	echo "Setup Complete"
+
+set-env:
+	export $(xargs -a .env)
 
 setup-basic:
 	bash -c 'cd ../../.rbenv/plugins/ruby-build && git checkout master && git pull'

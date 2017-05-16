@@ -13,7 +13,7 @@ A basic application for investigating users
 
 ## Setup
 Note: Setup assumes you are using vagrant/virtualbox [dev-vm-rails5](https://github.com/ac21/dev-vm-rails5)
-*   create environmental variables in `.env`;  you can use `example.env` as inspiration; run `source .env` to load.  See config.example for necessary variables
+*   create environmental variables in `.env`;  you can use `example.env` as inspiration; run `export $(xargs -a .env)` to load.  See config.example for necessary variables
 *   run setup: `make setup`
 *   run databse setup: `make db-setup`
 
