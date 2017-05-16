@@ -4,13 +4,13 @@ source 'https://rubygems.org'
 gem 'bundler', '1.12.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '4.2.8'
 # Use postgresql as the database for Active Record
 gem 'pg', '0.18.4'
 # Use redis for resque and other value/key storage
-gem 'redis', '3.3.0'
+gem 'redis', '3.3.3'
 # Use for managing background workers
-gem 'resque','1.26.0'
+gem 'resque','1.27.4'
 
 #Use grape to create REST-like APIs in Ruby
 gem 'grape', '0.16.2'
@@ -31,7 +31,7 @@ gem 'omniauth-linkedin-oauth2', '0.1.5'
 
 
 # ########## HTML Stuff ##########
-gem 'sass-rails', '5.0.4'
+gem 'sass-rails', '5.0.6'
 gem 'uglifier', '3.0.0'
 gem 'jquery-rails', '4.1.1'
 gem 'turbolinks', '2.5.3'
@@ -65,4 +65,4 @@ group :development do
   gem 'spring', '1.7.1'
 end
 
-ruby "2.3.4"
+ruby "2.4.1"
