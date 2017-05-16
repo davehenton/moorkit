@@ -1,5 +1,5 @@
 {
-  "name": "sherlock",
+  "name": "moorkit",
   "scripts": {
   },
   "env": {
@@ -15,16 +15,13 @@
     "RAILS_SERVE_STATIC_FILES": {
       "required": true
     },
-    "SH_RESQUE_CREDENTIALS": {
+    "MK_RESQUE_CREDS": {
       "required": true
     },
     "SECRET_KEY_BASE": {
       "required": true
-    }
-    "SH_PG_URL": {
-      "required": true
     },
-    "SH_PIPL_API_KEY": {
+    "DATABASE_URL": {
       "required": true
     }
   },

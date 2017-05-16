@@ -57,7 +57,7 @@ db-createuser:
 db-dropuser:
 	sudo -u postgres dropuser $(DB_USER)
 
-db-travis: db-travis-setup db-load db-migrate
+db-travis: db-travis-setup db-migrate
 
 db-travis-setup:
 	psql -U postgres -c 'create database moorkit'
