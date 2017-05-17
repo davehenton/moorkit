@@ -14,10 +14,6 @@ engines:
       languages:
       - ruby
       - javascript
-      - python
-      - php
-    exclude_fingerprints:
-    - a493a604b888117652c1c9303270ddfa
   eslint:
     enabled: true
   fixme:
@@ -26,20 +22,12 @@ engines:
     enabled: true
 ratings:
   paths:
-  - Gemfile.lock
+  - app/**
+  - lib/**
   - "**.erb"
-  - "**.haml"
   - "**.rb"
-  - "**.rhtml"
-  - "**.slim"
   - "**.css"
   - "**.coffee"
-  - "**.inc"
-  - "**.js"
-  - "**.jsx"
-  - "**.module"
-  - "**.php"
-  - "**.py"
 exclude_paths:
 - config/
 - db/
