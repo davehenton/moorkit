@@ -1,12 +1,5 @@
----
 engines:
-  brakeman:
-    enabled: true
-  bundler-audit:
-    enabled: true
-  csslint:
-    enabled: true
-  coffeelint:
+  rubocop:
     enabled: true
   duplication:
     enabled: true
@@ -14,25 +7,11 @@ engines:
       languages:
       - ruby
       - javascript
-  eslint:
-    enabled: true
-  fixme:
-    enabled: true
-  rubocop:
-    enabled: true
 ratings:
   paths:
   - app/**
   - lib/**
-  - "**.erb"
   - "**.rb"
-  - "**.css"
-  - "**.coffee"
 exclude_paths:
-- config/
-- db/
-- features/
-- script/
-- spec/
-- test/
-- vendor/
+- spec//**/*
+- "**/vendor/**/*"
