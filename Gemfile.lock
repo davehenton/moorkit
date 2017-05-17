@@ -296,7 +296,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (= 1.12.5)
+  bundler (= 1.14.6)
   byebug (= 9.0.5)
   codeclimate-test-reporter (= 0.6.0)
   cucumber (= 2.4.0)
@@ -330,7 +330,7 @@ DEPENDENCIES
   wine_bouncer (= 1.0.0)
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.4.1p111
 
 BUNDLED WITH
-   1.12.5
+   1.14.6
