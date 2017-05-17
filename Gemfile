@@ -49,7 +49,8 @@ group :test do
   gem 'cucumber-api-steps', '0.13'
   gem 'rack-test', '0.6.3'
   gem 'database_cleaner', '1.5.3'
-  gem 'codeclimate-test-reporter', '0.6.0'
+  gem 'simplecov', '0.13.0'
+  gem 'codeclimate-test-reporter', '1.0.8'
 end
 
 group :development, :test do

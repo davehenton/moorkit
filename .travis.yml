@@ -8,9 +8,10 @@ env:
   - DATABASE_URL=postgres://postgres@localhost:5432/moorkit
   - REDIS_URL=redis://localhost:637
   - MK_RESQUE_CREDS="travis:travis"
+  - RUBY_ENV=test
+  - RACK_ENV=test
   - RAILS_ENV=test
   - SECRET_KEY_BASE=secret_key
-  - RUBY_ENV=test
   matrix:
   - DB=postgresql
 before_install:
@@ -31,4 +32,7 @@ notifications:
 addons:
   postgresql: '9.5'
   code_climate:
-    repo_token: 26640320ccf0d4039ee13fe4c51d514f0907efa46431a836bfbeb4be7424cfa3
+    repo_token: 59fdc691d47a8cfb168e471378fa8b864d2325d586fbe162aae25dc507ea5157
+
+after_success:
+  - bundle exec codeclimate-test-reporter
