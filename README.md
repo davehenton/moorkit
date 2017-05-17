@@ -25,6 +25,16 @@ OR
 *   Login to heroku: `heroku login`
 *   Run `heroku local` tests Procfile and other workers
 
+
+## Buidling on Heroku
+*  create the application `heroku create moorkit`
+*  push the code to heroku `git push heroku master`
+*  run the migrations `heroku run rake db:migrate`
+*  set environmental configuration:
+```
+heroku config:set WEB_CONCURRENCY=2 RAILS_MAX_THREADS=4 DATABASE_CONNECTIONS=9 MK_RESQUE_CREDS=[USERNAME]:[PASSWORD]
+```
+
 ## License
 
 This app is open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
